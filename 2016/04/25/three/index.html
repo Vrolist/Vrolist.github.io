@@ -1,0 +1,396 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>中层：标签网页的获取单网页链接 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="John Doe">
+    
+    <meta name="description" content="一、实验说明1. 环境登录无需密码自动登录，系统用户名shiyanlou，密码shiyanlou
+2. 环境介绍本实验环境采用带桌面的Ubuntu Linux环境，实验中会用到桌面上的程序：
+
+LX终端（LXTerminal）: Linux命令行终端，打开后会进入Bash环境，可以使用Linux命令">
+    
+    
+    
+    
+    <link rel="alternative" href="/Tinnypp/atom.xml## RSS address." title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/Tinny.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/Tinny.jpg">
+    
+
+  
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    
+  
+  <link href="http://cdn.bootcss.com/highlight.js/8.2/styles/railscasts.min.css" rel="stylesheet">
+  <script src="http://cdn.bootcss.com/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="/Tinnypp">首页</a></li>
+					
+						<li><a href="/Tinnypp/archives">归档</a></li>
+					
+					<li>
+					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="st-search-inpu" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/25/three/" title="中层：标签网页的获取单网页链接" itemprop="url">中层：标签网页的获取单网页链接</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2016-04-25T13:34:50.931Z" itemprop="datePublished">2016-04-25</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验说明"><span class="toc-number">1.</span> <span class="toc-text">一、实验说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-环境登录"><span class="toc-number">1.1.</span> <span class="toc-text">1. 环境登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-环境介绍"><span class="toc-number">1.2.</span> <span class="toc-text">2. 环境介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-环境使用"><span class="toc-number">1.3.</span> <span class="toc-text">3. 环境使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、课程介绍"><span class="toc-number">2.</span> <span class="toc-text">二、课程介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、代码详解"><span class="toc-number">3.</span> <span class="toc-text">三、代码详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、本-小节-小结"><span class="toc-number">4.</span> <span class="toc-text">四、本.小节.小结</span></a></li></ol>
+		</div>
+		
+		<h2 id="一、实验说明"><a href="#一、实验说明" class="headerlink" title="一、实验说明"></a>一、实验说明</h2><h3 id="1-环境登录"><a href="#1-环境登录" class="headerlink" title="1. 环境登录"></a>1. 环境登录</h3><p>无需密码自动登录，系统用户名shiyanlou，密码shiyanlou</p>
+<h3 id="2-环境介绍"><a href="#2-环境介绍" class="headerlink" title="2. 环境介绍"></a>2. 环境介绍</h3><p>本实验环境采用带桌面的Ubuntu Linux环境，实验中会用到桌面上的程序：</p>
+<ol>
+<li>LX终端（LXTerminal）: Linux命令行终端，打开后会进入Bash环境，可以使用Linux命令</li>
+<li>Firefox：浏览器，可以用在需要前端界面的课程里，只需要打开环境里写的HTML/JS页面即可</li>
+<li>GVim：非常好用的编辑器，最简单的用法可以参考课程<a href="http://www.shiyanlou.com/courses/2" target="_blank" rel="external">Vim编辑器</a></li>
+</ol>
+<h3 id="3-环境使用"><a href="#3-环境使用" class="headerlink" title="3. 环境使用"></a>3. 环境使用</h3><p>使用GVim编辑器输入实验所需的代码及文件，使用LX终端（LXTerminal）运行所需命令进行操作。</p>
+<p>完成实验后可以点击桌面上方的“实验截图”保存并分享实验结果到微博，向好友展示自己的学习进度。实验楼提供后台系统截图，可以真实有效证明您已经完成了实验。</p>
+<p>实验记录页面可以在“我的主页”中查看，其中含有每次实验的截图及笔记，以及每次实验的有效学习时间（指的是在实验桌面内操作的时间，如果没有操作，系统会记录为发呆时间）。这些都是您学习的真实性证明。</p>
+<p>实验楼虚拟机，自带了python2.X和python3.X版本，无需安装 该实验建议使用 python2.7 版本， 也就是默认版本</p>
+<p>IDE选择及安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim：自带编辑器，无需安装，只要你会，随你喜欢</span><br><span class="line"></span><br><span class="line">IDLE：python的编译器，推荐新手使用</span><br><span class="line">代码：sudo apt-get install idle</span><br><span class="line"></span><br><span class="line">spyder：需要学习学习</span><br><span class="line">代码：sudo apt-get install spyder</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、课程介绍"><a href="#二、课程介绍" class="headerlink" title="二、课程介绍"></a>二、课程介绍</h2><p>组图页面的下载，上一节已经完成了已经完成了，这节呢，需要做的蛮简单，但是任务有两个：</p>
+<ul>
+<li>获取该标签的全部链接地址</li>
+<li>获取每个链接页面的全部组图链接地址</li>
+</ul>
+<p>也不难，就是’多’和’烦’。先来看看我找的链接截图</p>
+<blockquote>
+<p><img src="https://dn-anything-about-doc.qbox.me/document-uid63246labid1542timestamp1450925803557.png/wm" alt="此处输入图片的描述"></p>
+</blockquote>
+<p>做个简答的思路分析：</p>
+<ul>
+<li>这个截图呢，首页链接就是meizi.html，不过后面2、3、4、5、6的链接，只是后缀，所以这里呢，我们需要简单做个拼接，得到完整的链接脚本。另外，当前页面就是1，所以1的链接为thisclass，在此呢，我采用的是从标签首页进去，然后直接获取 &gt;=2 的链接，利用标签首页地址，拼接得到标签的所有完整链接地址，这是第一步，得到所有标签完整链接路径。</li>
+<li>得到之后呢，每个链接里面，度会有各组图套图的路径，我们又需要从每个路径里面全部读取出来，再来一张图<blockquote>
+<p><img src="https://dn-anything-about-doc.qbox.me/document-uid63246labid1542timestamp1450926339083.png/wm" alt="组图链接地址"></p>
+</blockquote>
+</li>
+</ul>
+<p>这个图不用怎么细看，就是在ul标签的多个li，拿到ul标签的代码就好了<br>思路就是这些，代码呢，分两段，“一寸长一寸强”</p>
+<h2 id="三、代码详解"><a href="#三、代码详解" class="headerlink" title="三、代码详解"></a>三、代码详解</h2><p>先附上获取标签链接的代码，并给出详细解析（代码不难，主要是明白为什么这么写是最重要的）</p>
+<p>第一个代码块，简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">文件名：meizi_series_nextpage</span><br><span class="line">import re</span><br><span class="line">import urllib2</span><br><span class="line">#这个呢，是获取组图套图的代码，是下一个需要显示的代码块</span><br><span class="line">import meizi_series_getpage</span><br><span class="line">#同样的，这里是加载链接防超时，和上一节一样</span><br><span class="line">def loadurl(url):</span><br><span class="line">    try:</span><br><span class="line">        conn = urllib2.urlopen(url,timeout=5)</span><br><span class="line">        html = conn.read()</span><br><span class="line">        return html</span><br><span class="line">    except urllib2.URLError:</span><br><span class="line">        return &apos;&apos;</span><br><span class="line">#下面的这个path指的是保存本地的文件路径，我在第一小节已经讲过了，还记得么？跟着代码再将一次吧</span><br><span class="line">def nextpage(url,path):</span><br><span class="line">    reNextLink = &quot;&lt;a.*?href=&apos;(.*?)&apos;&gt;.*?&lt;/a&gt;&quot;</span><br><span class="line">    #获取reNextPage里的标签的全部链接</span><br><span class="line">    reNextPage = &apos;&lt;div.*?id=&quot;wp_page_number.*?&gt;.*?&lt;ul&gt;(.*?)&lt;/ul&gt;&apos;</span><br><span class="line">    #嘿嘿，获取ul标签里面的内容，里面包含了所有我们需要的链接，找到wp_page_number就可以了</span><br><span class="line">    #下面呢，目的是获取链接名，组合传入路径得到当前路径名，解释：匹配a到z字符，&gt;=1个</span><br><span class="line">    searchPathTail = &apos;.*/([a-z]+).*?.html&apos;</span><br><span class="line">    #获取传入的链接尾巴</span><br><span class="line">    searchurltail = &apos;.*/(.*?.html)&apos;</span><br><span class="line">    #获取传入的链接头部</span><br><span class="line">    searchhead = &apos;(.*)/.*?.html&apos;</span><br><span class="line">    #分开头和尾，是因为在获取当前标签的所有页码，都不是完整的，而是尾部链接，需要用尾部和头部链接拼凑成完整的链接。头部链接呢，就是传入链接的头部，而且传入的是第一个完整链接，页面1里面又没有尾部链接，所有传入链接的尾部，也需要找出</span><br><span class="line">    pathTail = re.findall(searchPathTail,url,re.S)</span><br><span class="line">    urlTail = re.findall(searchurltail,url,re.S)</span><br><span class="line">    urlhead = re.findall(searchhead,url,re.S)</span><br><span class="line">    #从传入文件夹路径和从链接中分析出的文件名，得到当前文件夹路径，保存到path中</span><br><span class="line">    path = path + &apos;/&apos; +pathTail[0]</span><br><span class="line">    print path</span><br><span class="line">    #标签页面的存储列表nextpage</span><br><span class="line">    nextpageurl = []</span><br><span class="line">    html = &apos;&apos;</span><br><span class="line">    while True:</span><br><span class="line">        html = loadurl(url)</span><br><span class="line">        if html == &apos;&apos;:</span><br><span class="line">            print &apos;load&apos;, url,&apos;error&apos;</span><br><span class="line">            continue</span><br><span class="line">        else:</span><br><span class="line">            break</span><br><span class="line">    nextPage = re.findall(reNextPage,html,re.S)</span><br><span class="line">    nextLink = re.findall(reNextLink,nextPage[0],re.S)</span><br><span class="line">    nextLink.append(urlTail[0])</span><br><span class="line">    #这一段呢，是将标签页码的所有尾部链接保存到nextLink中，然后下面的for循环，将完整的url链接，存储到nextpageurl中</span><br><span class="line">    nextLink = sorted(list(set(nextLink)))</span><br><span class="line">    for i in nextLink:</span><br><span class="line">        nextpageurl.append(urlhead[0]+&quot;/&quot;+i)</span><br><span class="line">    #将url链接和对应的文件路径传入&quot;获取标签第n页的所有组图链接&quot;的模板中，引号标记的，就是下一个代码块</span><br><span class="line">    for i in nextpageurl:</span><br><span class="line">        print i</span><br><span class="line">        meizi_series_getpage.tag_series(i,path)</span><br></pre></td></tr></table></figure></p>
+<p>第二个代码块，简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#文件名：meizi_series_getpage</span><br><span class="line">import re</span><br><span class="line">import urllib2</span><br><span class="line">import meizi_page_download</span><br><span class="line"></span><br><span class="line">def loadurl(url):</span><br><span class="line">    #依旧的，防超时和循环加载</span><br><span class="line">    try:</span><br><span class="line">        conn = urllib2.urlopen(url,timeout=5)</span><br><span class="line">        html = conn.read()</span><br><span class="line">        return html</span><br><span class="line">    except urllib2.URLError:</span><br><span class="line">        return &apos;&apos;</span><br><span class="line">        </span><br><span class="line">#这个函数呢，简单点就是根据套图链接和传入的路径，得到套图文件夹路径，再传给上一节的图片下载模板</span><br><span class="line">def oneOfSeries(urllist,path):</span><br><span class="line">    searchname = &apos;.*/(.*?).html&apos;</span><br><span class="line">    current_path = &apos;&apos; </span><br><span class="line">    for url in urllist:</span><br><span class="line">        try:</span><br><span class="line">            name = re.findall(searchname,url,re.S)</span><br><span class="line">            current_path = path + &apos;/&apos; + name[0]</span><br><span class="line">            meizi_page_download.picurl(url,current_path)</span><br><span class="line">        except urllib2.URLError:</span><br><span class="line">            pass</span><br><span class="line"></span><br><span class="line">#传入标签的第n页和文件夹路径，获取所有套图url链接，和分析出对应的文件夹路径，传给我们底层的图片下载模板（也就是上一节啦）</span><br><span class="line">def tag_series(url,path):</span><br><span class="line">    #这里呢，是直接匹配出套图的链接，直接，注意是直接，这里呢最好是将结果和源码对下结果，防止遗漏和多出</span><br><span class="line">    reSeriesList = &apos;&lt;div .*?class=&quot;pic&quot;.*?&gt;.*?&lt;a.*?href=&quot;(.*?)&quot;.*?target.*?&gt;&apos;</span><br><span class="line">    html = &apos;&apos;</span><br><span class="line">    while True:</span><br><span class="line">        html = loadurl(url)</span><br><span class="line">        if html == &apos;&apos;:</span><br><span class="line">            print &apos;load&apos;, url,&apos;error&apos;</span><br><span class="line">            continue</span><br><span class="line">        else:</span><br><span class="line">            break</span><br><span class="line">    seriesList = re.findall(reSeriesList,html,re.S)</span><br><span class="line">    if len(seriesList) ==0:</span><br><span class="line">        pass</span><br><span class="line">    else:</span><br><span class="line">        oneOfSeries(seriesList,path)</span><br></pre></td></tr></table></figure></p>
+<p>代码贴送，完毕<br>实验楼环境运行截图，奉上：<br><img src="https://dn-anything-about-doc.qbox.me/document-uid63246labid1542timestamp1451102812400.png/wm" alt="实验楼运行截图（第三小节）"></p>
+<h2 id="四、本-小节-小结"><a href="#四、本-小节-小结" class="headerlink" title="四、本.小节.小结"></a>四、本.小节.小结</h2><p>第一个代码不难吧，易懂；第二个代码够更简单吧，所以这节不难但是长了点。一共四步：</p>
+<ul>
+<li>从传入的文件夹路径和标签链接，得到当前标签的文件夹路径</li>
+<li>从传入的标签链接，得到所有的标签页的url链接</li>
+<li>从传入的标签第n页的url链接，得到所有的套图url链接</li>
+<li>从套图url链接和传入的文件夹路径，得到套图的文件夹路径</li>
+<li>将套图文件夹路径和套图的url链接，传给图片下载的模板（上一节我们完成的那个代码文件）<br>本节到此结束了，下一节就是”高层：从顶层域获取所有的标签页”，基础爬虫的最后一个…<blockquote>
+<p>Follow me, let’s go…</p>
+</blockquote>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/04/25/three/" data-title="中层：标签网页的获取单网页链接 | Hexo" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/04/25/four/" title="高层：从顶层域获取所有的标签页">
+  <strong>New:</strong><br/>
+  <span>
+  高层：从顶层域获取所有的标签页</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/04/25/five/"  title="拓展：多线程的展开--完结">
+ <strong>Old:</strong><br/> 
+ <span>拓展：多线程的展开--完结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	
+	<div class="ds-thread" data-title="中层：标签网页的获取单网页链接" data-thread-key="three" data-author-key="John Doe" data-url="http://yoursite.com/post/three"></div>
+	
+</section>
+
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© Levon</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tinnypp"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';    //change to ds.src = '/js/embed.js'; to add useragent for duoshuo
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>
