@@ -1,0 +1,402 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>spider-知识储备，简单爬虫的必知必会，【核心】 | bulabean</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Hus">
+    
+    <meta name="description" content="一、实验说明1. 环境登录无需密码自动登录，系统用户名shiyanlou，密码shiyanlou
+2. 环境介绍本实验环境采用带桌面的Ubuntu Linux环境，实验中会用到桌面上的程序：
+
+LX终端（LXTerminal）: Linux命令行终端，打开后会进入Bash环境，可以使用Linux命令">
+    
+    
+    
+    
+    <link rel="alternative" href="/vrolist/atom.xml" title="bulabean" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/Tinny.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/Tinny.jpg">
+    
+
+  
+  
+  <link href="http://cdn.bootcss.com/highlight.js/8.2/styles/railscasts.min.css" rel="stylesheet">
+  <script src="http://cdn.bootcss.com/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="bulabean">bulabean</a></h1>
+				<h2 class="blog-motto">m-blog</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="st-search-inpu" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/26/one/" title="spider-知识储备，简单爬虫的必知必会，【核心】" itemprop="url">spider-知识储备，简单爬虫的必知必会，【核心】</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2016-04-26T02:27:05.895Z" itemprop="datePublished">2016-04-26</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验说明"><span class="toc-number">1.</span> <span class="toc-text">一、实验说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-环境登录"><span class="toc-number">1.1.</span> <span class="toc-text">1. 环境登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-环境介绍"><span class="toc-number">1.2.</span> <span class="toc-text">2. 环境介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-环境使用"><span class="toc-number">1.3.</span> <span class="toc-text">3. 环境使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、课程介绍"><span class="toc-number">2.</span> <span class="toc-text">二、课程介绍</span></a></li></ol>
+		</div>
+		
+		<h2 id="一、实验说明"><a href="#一、实验说明" class="headerlink" title="一、实验说明"></a>一、实验说明</h2><h3 id="1-环境登录"><a href="#1-环境登录" class="headerlink" title="1. 环境登录"></a>1. 环境登录</h3><p>无需密码自动登录，系统用户名shiyanlou，密码shiyanlou</p>
+<h3 id="2-环境介绍"><a href="#2-环境介绍" class="headerlink" title="2. 环境介绍"></a>2. 环境介绍</h3><p>本实验环境采用带桌面的Ubuntu Linux环境，实验中会用到桌面上的程序：</p>
+<ol>
+<li>LX终端（LXTerminal）: Linux命令行终端，打开后会进入Bash环境，可以使用Linux命令</li>
+<li>Firefox：浏览器，可以用在需要前端界面的课程里，只需要打开环境里写的HTML/JS页面即可</li>
+<li>GVim：非常好用的编辑器，最简单的用法可以参考课程<a href="http://www.shiyanlou.com/courses/2" target="_blank" rel="external">Vim编辑器</a></li>
+</ol>
+<h3 id="3-环境使用"><a href="#3-环境使用" class="headerlink" title="3. 环境使用"></a>3. 环境使用</h3><p>使用GVim编辑器输入实验所需的代码及文件，使用LX终端（LXTerminal）运行所需命令进行操作。</p>
+<p>完成实验后可以点击桌面上方的“实验截图”保存并分享实验结果到微博，向好友展示自己的学习进度。实验楼提供后台系统截图，可以真实有效证明您已经完成了实验。</p>
+<p>实验记录页面可以在“我的主页”中查看，其中含有每次实验的截图及笔记，以及每次实验的有效学习时间（指的是在实验桌面内操作的时间，如果没有操作，系统会记录为发呆时间）。这些都是您学习的真实性证明。</p>
+<p>实验楼虚拟机，自带了python2.X和python3.X版本，无需安装 该实验建议使用 python2.0 版本， 也就是默认版本</p>
+<p>IDE选择及安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim：自带编辑器，无需安装，只要你会，随你喜欢</span><br><span class="line"></span><br><span class="line">IDLE：python的编译器，推荐新手使用</span><br><span class="line">代码：sudo apt-get install idle</span><br><span class="line"></span><br><span class="line">spyder：需要学习学习</span><br><span class="line">代码：sudo apt-get install spyder</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、课程介绍"><a href="#二、课程介绍" class="headerlink" title="二、课程介绍"></a>二、课程介绍</h2><ul>
+<li><p>一门编程语言的学习，实践中学习的效果肯定是最好的，我当初学python就是冲着爬虫来的，所以这次的课程目的是学会“炮制”简单的爬虫</p>
+</li>
+<li><p>本次课程，主要是介绍根据给定的url，下载网页中指定的模特图片，python版本为2.7（3.0也可以运行，print需要修改下），使用的模块有os、urllib2、re，单线程爬虫～简单暴力～～希望给大家留下一个牢固的记忆</p>
+</li>
+<li><p>这节课程基本没有代码全是原理，但是原理很重要，我会细讲，所以本节课程的文字内容，请细看。后面的课程是建立在这节课程之上来完成的，而且课程之间是上下级调用关系，层次结构很明显。如果哪里不足，还请评论指正</p>
+</li>
+<li><p>介绍下图片来源–<a href="http://www.meizitu.com/" target="_blank" rel="external">妹子图</a>，这个网站的整个爬取是最终目的，这节主要是对单个页面内的图片，进行爬取，例如这个 <a href="http://www.meizitu.com/a/5254.html" target="_blank" rel="external">谁是这长发女孩心中的白马王子
+</a>，供上第一张图片<img src="http://mm.howkuai.com/wp-content/uploads/2015a/12/17/01.jpg" alt="手下我的膝盖"></p>
+</li>
+</ul>
+<p>##三、课题探索</p>
+<ul>
+<li>####第一步：</li>
+</ul>
+<ol>
+<li><p>套图页面：这里呢，主要是搜索页面中的模特图片路径，但是图片都是img标签，不设计个简单匹配套路，还真难得到100%的精确度，先提供一个网页，大家试着找找，<a href="http://www.meizitu.com/a/5252.html" target="_blank" rel="external">软妹</a></p>
+</li>
+<li><p>标签所有单页：获取该网页中的所有套图页的链接（进入套图页），也就是给定一个标签页，获得这个页面中显示的所有套图页的链接，如某一标签页example[15]（实际情况比这还多），则这个页面中包含了15个套图</p>
+</li>
+<li><p>标签所有页面：一个标签不止一个页面，获取该标签的所有页，如tag1[35][10]（实际情况比这还多），标签tag1又35个页面，每个页面又包含了10个套图页面，就像一个二维数组，明白了吧。</p>
+</li>
+<li><p>顶级域名页面：这里，包含了所有的标签以及它们的链接，不过呢，有重复，这里很简单的做一个去重就可以了，如meizi[8]（实际情况比这还多），说明这个网站包含8个标签，每个标签里面又有它自己所包含的链接。<br>图的信息量还是蛮大的，上图–<img src="https://dn-anything-about-doc.qbox.me/document-uid63246labid1540timestamp1450759659270.png/wm" alt="Xmind"></p>
+</li>
+<li><p>最后提下图片保存路径问题，这个呢在中层和高层中需要，底层还是不需要的，底层测试时，传入文件夹路径并保存该文件夹下，但在中层中，路径问题还是挺严重的，因为我们最终是启动高层，传入一个最初的文件夹路径，然后高层创建中层文件夹，并且在调用中层函数时，将标签链接和对应的文件夹路径传过去，中层调用底层也是一样的，都需要传过去文件夹路径。不过文件夹路径传过去，最后是由底层来创建，高层和中层是不创建的，路径是虚的，由底层创建并保存图片文件。<strong>您，听懂了吗？</strong><br>来，上表格、上图：</p>
+</li>
+</ol>
+<ul>
+<li>meizi是由我们调用顶层时，传进去文件夹，这个文件夹是真实存在的</li>
+<li>baobei nvshen mengmeizi 是顶层拟定的，在调用中层时，和相应的标签链接一起传给中层</li>
+<li><p>12 3324 346 89 这几个文件夹是由中层拟定，在调用底层时，和组图套图链接地址一起传给底层，底层从链接地址的html中得到了图片地址，从中层得到文件夹路径来创建文件夹，下载图片并保存到该文件夹中<br>全部过程就是这样，并且os模板里面，有一次性创建多层(&gt;=1)文件夹的函数，这一点是能实现的，我这么实现，是防止空文件夹的存在，当有图片时，才一起创建。如果想了解函数，你可以进入python命令行，用help()函数查看函数介绍–”亲，懂了吗？没看明白，多看几次，多想想，看多了记得更熟练”</p>
+<blockquote>
+<p><img src="https://dn-anything-about-doc.qbox.me/document-uid63246labid1540timestamp1450927729310.png/wm" alt="本地图片保存框架">图示，文件夹是手工建的，利用tree命令行打印并截图</p>
+</blockquote>
+</li>
+<li><p>####第二步：<br>源码路径，这个都是靠人脑分析，找好后，顺序暂定（我不会改，LOL）有问题再改，介绍下re模块和一个简单的匹配法则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.*?：匹配任意字符，非贪婪模式，如re123re0re456re，则(re.*?re)匹配re123re和re456re</span><br><span class="line">.*：匹配任意字符，贪婪模式，如re123re0re456re，则(re.*re)匹配re123re0re456re</span><br><span class="line">()：返回括号内的匹配到的字符，如(re.*re)</span><br><span class="line">这里呢，只需要熟悉和使用这个规则就可以了，其余的不做介绍</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这个呢，非常重要，这里提供链接<a href="https://www.shiyanlou.com/courses/90" target="_blank" rel="external">实验楼</a>，上一个实验截图，版本2.7<img src="https://dn-anything-about-doc.qbox.me/document-uid63246labid1540timestamp1450767817183.png/wm" alt="re实验截图"></p>
+<ul>
+<li>####第三步：<br>图片下载保存，这里涉及os的一些函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">os.path.exists(文件路径)，检测该文件路径是否存在</span><br><span class="line">os.mknod(文件)，创建该文件，上一级目录必须存在</span><br><span class="line">os.mkdirs(文件)，创建文件，上一级目录如果不存在则一同创建</span><br><span class="line">进入python操作界面，help(os)，会显示所有函数名及介绍，这里只做了简单介绍</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>有这些就够了，os模块，基本也就是在图片下载时需要</p>
+<ul>
+<li>####第四步：<br>网络问题很重要，爬虫速度是爬虫里面核心，那网络就是核心的核心（没网你从哪爬嘛）</li>
+</ul>
+<ol>
+<li>这个问题的错误在这里是不应该这么早出现的，但是警告会一开始就出现，如果等它报错停止运行的问题出现的时候再解除，我估计蛮多人会乱，因为等它出问题了，这个爬虫已经蛮大（对刚开始学爬虫的人而言，有大神也请尽情喷），而且问题不好找（不过蛮好解决的），索性我直接在这里提出。</li>
+<li>这个问题的优化，可以直接将爬虫进化，或者说是‘腿的个数’翻了个倍。简单描述下这个问题：在前期，一个图片的大小也就200k~500k的样子，也就2秒左右速度很快，但是网络延迟能达到10秒甚至更高，所以你的带宽利用率也就是10%不到，这是前期警告。</li>
+<li>在网络不稳定或网络拥堵的情况下，一旦urllib2这个模块链接超时未响应，程序会等待然后就是错误并终端程序的运行，这就是异常报错，所以在这个项目的第一节课，就应该解决这个大隐患的小Bug，要知道维(shang)护(xin)总是蛋(nan)疼(mian)的</li>
+</ol>
+<ul>
+<li>####第五步：既然网络问题提出来了，那就补上相应的解决方法，这是一个非常应急的方法，因为我就是再后期发现并解决的这个问题，现在供上思路<blockquote>
+<p>python基础中，有异常检测try…except，使用urllib2.open()，补抓urllib2.URLError异常，单独置于一个函数中，当不成功时返回空字符串，通知调用函数继续调用该函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def loadurl(url):</span><br><span class="line">    try:</span><br><span class="line">        conn = urllib2.urlopen(url, timeout=5)</span><br><span class="line">        html = conn.read()</span><br><span class="line">        return html</span><br><span class="line">    except urllib2.URLError:</span><br><span class="line">        errorReport.errorLoadUrl(url)</span><br><span class="line">        return &apos;&apos;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>同样的，保存图片到本地，也需要进行超时检测，以防报错</p>
+<ul>
+<li>####第六步：补充说明，在这个后期，我也添上了“改进爬虫优化网路速率提高爬虫速度的多线程模式”，会以一节课程的形式单独补充，不作为本课的核心课程，作为拓展课程，就是选修课中的必修学分（很炫酷的哟）</li>
+</ul>
+<p>##四、本项目层次结构介绍</p>
+<p>huihua不多说，上图【德玛西亚地图同款造型】<img src="https://dn-anything-about-doc.qbox.me/document-uid63246labid1540timestamp1452092962693.png/wm" alt="德玛西亚地图同款造型"></p>
+<p>##五、组图下载<br>这节需要介绍的基础知识，大概就是这些，下节的主要内容是图片下载和url链接问题，待续….</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://spbeen.com/2016/04/26/one/" data-title="spider-知识储备，简单爬虫的必知必会，【核心】 | bulabean" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/04/26/two/"  title="spider-底层：单网页多图下载">
+ <strong>旧一篇:</strong><br/> 
+ <span>spider-底层：单网页多图下载
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© vrolist</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>
